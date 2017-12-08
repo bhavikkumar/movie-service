@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-movie-released
+      author: bhavik.kumar
+      comment: add released flag
+      changes:
+        - addColumn:
+            tableName: movie
+            columns:
+              - column:
+                  name: released
+                  type: boolean
+                  defaultValue: false              

@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie-table
+      author: bhavik.kumar
+      comment: create movie tables
+      changes:
+        - createTable:
+            tableName: movie
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_date_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_date_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: movie_genres
+            columns:
+              - column:
+                  name: genres
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: movie_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movie
+                    references: movie(id)
